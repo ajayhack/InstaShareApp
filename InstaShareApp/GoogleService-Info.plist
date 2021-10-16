@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>977489544617-kpbk32vje94umnfq387sr32a4p6lg86e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.977489544617-kpbk32vje94umnfq387sr32a4p6lg86e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCvO6pgdBROs077ftW0jJuPhRcstOrrp9g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>977489544617</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Demo.InstaShareApp</string>
+	<key>PROJECT_ID</key>
+	<string>push-test-app-7d519</string>
+	<key>STORAGE_BUCKET</key>
+	<string>push-test-app-7d519.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:977489544617:ios:24c1e8d8f101e2cc9370b8</string>
+	<key>DATABASE_URL</key>
+	<string>https://push-test-app-7d519.firebaseio.com</string>
+</dict>
+</plist>
