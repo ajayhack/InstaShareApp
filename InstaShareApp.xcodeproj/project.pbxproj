@@ -15,6 +15,7 @@
 		7436AFE2271B143A00868F36 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7436AFE1271B143A00868F36 /* AuthManager.swift */; };
 		7436AFE4271B147A00868F36 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7436AFE3271B147A00868F36 /* FirebaseStorageManager.swift */; };
 		7490A874271706CC0018410C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7490A873271706CC0018410C /* GoogleService-Info.plist */; };
+		7491C230271CA756004DB13C /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491C22F271CA756004DB13C /* Utility.swift */; };
 		74DBEED02712C5DB0039DE78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBEECF2712C5DB0039DE78 /* AppDelegate.swift */; };
 		74DBEED22712C5DB0039DE78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBEED12712C5DB0039DE78 /* SceneDelegate.swift */; };
 		74DBEED72712C5DB0039DE78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74DBEED52712C5DB0039DE78 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		7436AFE1271B143A00868F36 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7436AFE3271B147A00868F36 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		7490A873271706CC0018410C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7491C22F271CA756004DB13C /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		74DBEECC2712C5DB0039DE78 /* InstaShareApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaShareApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DBEECF2712C5DB0039DE78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74DBEED12712C5DB0039DE78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				7436AFDF271B12F100868F36 /* DatabaseManager.swift */,
 				7436AFE1271B143A00868F36 /* AuthManager.swift */,
 				7436AFE3271B147A00868F36 /* FirebaseStorageManager.swift */,
+				7491C22F271CA756004DB13C /* Utility.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				7436AFE4271B147A00868F36 /* FirebaseStorageManager.swift in Sources */,
 				74DBEF072712C7120039DE78 /* NotificationViewController.swift in Sources */,
 				74DBEED22712C5DB0039DE78 /* SceneDelegate.swift in Sources */,
+				7491C230271CA756004DB13C /* Utility.swift in Sources */,
 				7436AFDB271B102100868F36 /* LoginViewController.swift in Sources */,
 				74DBEF012712C6320039DE78 /* HomeViewController.swift in Sources */,
 				7436AFE2271B143A00868F36 /* AuthManager.swift in Sources */,
