@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SafariServices
+import UIKit
 
 struct URLConstants {
     static let termsOfServiceURL = "https://www.instagram.com/about/legal/terms/before-january-19-2013/"
@@ -14,4 +16,11 @@ struct URLConstants {
 
 struct StoryBoardViewID {
     static let loginViewControllerID = "login"
+    static let SignUpViewControllerID = "signup"
+    static let DashBoardTabBarID = "dashboardTabBar"
 }
+
+struct PreferenceConstant {
+    static let loginConstant = "login"
+}
+

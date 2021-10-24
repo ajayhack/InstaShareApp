@@ -17,16 +17,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        let windowScene = scene as? UIWindowScene
+        let window = UIWindow(windowScene: windowScene!)
+        if(!checkLogin() && windowScene != nil){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: StoryBoardViewID.loginViewControllerID)
         initialViewController.modalPresentationStyle = .fullScreen
-        let windowScene = scene as? UIWindowScene
-        if(windowScene != nil && Auth.auth().currentUser == nil){
-            let window = UIWindow(windowScene: windowScene!)
              window.rootViewController = initialViewController
              self.window = window
              window.makeKeyAndVisible()
         }else { return }
+    }
+    
+    //Method to Change Scene First Screen Window at Runtime:-
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true){
+        window?.rootViewController = vc
+    }
+    
+    //Method to Check if User Already Login then redirect to Tabbed Controller:-
+    func checkLogin() -> Bool{
+        let loginStatus = UserDefaults.standard
+        if loginStatus.object(forKey: PreferenceConstant.loginConstant) == nil {
+            //User not Logged In Case:-
+            print("ERROR:- Login Required Redirect to Login Controller")
+            return false
+        } else {
+            if(loginStatus.bool(forKey: PreferenceConstant.loginConstant)){
+            //User Logged in Case:-
+             return true
+            }
+        }
+        return false
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
