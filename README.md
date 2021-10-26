@@ -1,5 +1,5 @@
 # InstaShareApp
-This is a Clone of Instagram App for the Learning Purposeonly.
+This is an Instashare App build in for IOS Environment and with this app we are basically trying to build a learning purpose app which has the functionality that Instagram has , to Learn and better understand how things work under the hood.
 
 #Technology used
 1.Swift for all Core Logics
