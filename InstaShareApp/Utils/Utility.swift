@@ -18,9 +18,12 @@ struct StoryBoardViewID {
     static let loginViewControllerID = "login"
     static let SignUpViewControllerID = "signup"
     static let DashBoardTabBarID = "dashboardTabBar"
+    static let ProfileViewControllerID = "profile"
 }
 
 struct PreferenceConstant {
     static let loginConstant = "login"
+    static let loggedInUserName = "uName"
+    static let loggedInUserEmail = "uEmail"
 }
 

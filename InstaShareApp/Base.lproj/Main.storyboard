@@ -353,20 +353,8 @@
                     <view key="view" contentMode="scaleToFill" id="1Oy-Cm-p9H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full App Coming soon....." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRb-JN-Uvi">
-                                <rect key="frame" x="90" y="436" width="234.5" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zpW-80-rjl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="HRb-JN-Uvi" firstAttribute="centerY" secondItem="1Oy-Cm-p9H" secondAttribute="centerY" id="1OV-fC-z2w"/>
-                            <constraint firstItem="HRb-JN-Uvi" firstAttribute="centerX" secondItem="1Oy-Cm-p9H" secondAttribute="centerX" id="Dmd-jz-zbV"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EAn-ZP-66g"/>
                 </viewController>
@@ -425,14 +413,65 @@
         <!--Profile View Controller-->
         <scene sceneID="R0l-S5-BJf">
             <objects>
-                <viewController id="kq1-Sf-1D3" customClass="ProfileViewController" customModule="InstaShareApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="kq1-Sf-1D3" customClass="ProfileViewController" customModule="InstaShareApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0X5-A3-kGa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="mt5-Nz-0zO">
+                                <rect key="frame" x="87" y="108" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="iXY-0f-KBl"/>
+                                    <constraint firstAttribute="height" constant="128" id="z4I-0W-Y3F"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajay Thakur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoH-oc-KlC">
+                                <rect key="frame" x="20" y="296" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a Software Engineer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaL-GX-Vgw">
+                                <rect key="frame" x="20" y="337" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fE1-qn-jn7">
+                                <rect key="frame" x="150" y="246" width="120" height="40"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Take Picture">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="openCamera" destination="kq1-Sf-1D3" eventType="touchUpInside" id="YQU-dR-7g6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Eiq-oR-uhC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Eiq-oR-uhC" firstAttribute="trailing" secondItem="UoH-oc-KlC" secondAttribute="trailing" constant="20" id="6Sc-Vx-zCX"/>
+                            <constraint firstItem="UoH-oc-KlC" firstAttribute="top" secondItem="mt5-Nz-0zO" secondAttribute="bottom" constant="60" id="C36-ot-MoZ"/>
+                            <constraint firstItem="fE1-qn-jn7" firstAttribute="top" secondItem="mt5-Nz-0zO" secondAttribute="bottom" constant="10" id="E0Y-rf-SKr"/>
+                            <constraint firstItem="Eiq-oR-uhC" firstAttribute="trailing" secondItem="zaL-GX-Vgw" secondAttribute="trailing" constant="20" id="EsZ-Y9-fvL"/>
+                            <constraint firstItem="zaL-GX-Vgw" firstAttribute="leading" secondItem="Eiq-oR-uhC" secondAttribute="leading" constant="20" id="KhA-Pb-a2G"/>
+                            <constraint firstItem="UoH-oc-KlC" firstAttribute="top" secondItem="fE1-qn-jn7" secondAttribute="bottom" constant="10" id="L7D-WX-mNP"/>
+                            <constraint firstItem="UoH-oc-KlC" firstAttribute="leading" secondItem="Eiq-oR-uhC" secondAttribute="leading" constant="20" id="R7g-Kp-AFz"/>
+                            <constraint firstItem="Eiq-oR-uhC" firstAttribute="trailing" secondItem="fE1-qn-jn7" secondAttribute="trailing" constant="144" id="T2Q-DM-hZ6"/>
+                            <constraint firstItem="mt5-Nz-0zO" firstAttribute="top" secondItem="Eiq-oR-uhC" secondAttribute="top" constant="20" id="aGp-AT-PIX"/>
+                            <constraint firstItem="mt5-Nz-0zO" firstAttribute="top" secondItem="Eiq-oR-uhC" secondAttribute="top" constant="20" id="hmR-WH-nuc"/>
+                            <constraint firstItem="zaL-GX-Vgw" firstAttribute="top" secondItem="UoH-oc-KlC" secondAttribute="bottom" constant="20" id="kew-mI-SiP"/>
+                            <constraint firstItem="mt5-Nz-0zO" firstAttribute="leading" secondItem="Eiq-oR-uhC" secondAttribute="leading" constant="87" id="mwD-oG-DsP"/>
+                            <constraint firstItem="Eiq-oR-uhC" firstAttribute="trailing" secondItem="mt5-Nz-0zO" secondAttribute="trailing" constant="87" id="sIS-tV-VJw"/>
+                            <constraint firstItem="fE1-qn-jn7" firstAttribute="leading" secondItem="Eiq-oR-uhC" secondAttribute="leading" constant="150" id="vBq-HD-bbg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qji-0U-uVm"/>
+                    <connections>
+                        <outlet property="profileImage" destination="mt5-Nz-0zO" id="rAz-Jo-rQq"/>
+                        <outlet property="userName" destination="UoH-oc-KlC" id="lH7-lw-gts"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kj-MN-WZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -443,6 +482,7 @@
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="imagePlaceholder" width="840" height="859"/>
         <image name="instGradient" width="1024" height="576"/>
         <image name="instaLogo" width="1785" height="505"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

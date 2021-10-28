@@ -94,7 +94,7 @@ class RegisterViewController: UIViewController {
     }
     
     //Method to Validate SignUp Fields:-
-    func validateSignUpFormFields() -> String {
+    private func validateSignUpFormFields() -> String {
         if(usernameTF?.text?.isEmpty ?? false == true){
             return "Username should not be empty!!!"
         } else if(emailTF?.text?.isEmpty ?? false == true){
@@ -106,7 +106,7 @@ class RegisterViewController: UIViewController {
     }
     
     //Method to create User in FireStore DB:-
-    func createUserINFireStoreDB(_ userName : String? , _ emailName : String? , _ password : String? ,  _ uid : String?){
+    private func createUserINFireStoreDB(_ userName : String? , _ emailName : String? , _ password : String? ,  _ uid : String?){
         let db = Firestore.firestore()
         db.collection("insta_share_users").addDocument(data: [
             "username":userName ?? "",
@@ -130,14 +130,14 @@ class RegisterViewController: UIViewController {
     }
     
     //Loader Helper Functions:-
-    func showLoader(){
+    private func showLoader(){
         let loader = self.loader()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self.stopLoader(loader: loader)
                 }
     }
     
-    func loader() -> UIAlertController {
+    private func loader() -> UIAlertController {
             let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
             let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
             loadingIndicator.hidesWhenStopped = true
@@ -148,7 +148,7 @@ class RegisterViewController: UIViewController {
             return alert
         }
         
-        func stopLoader(loader : UIAlertController) {
+        private func stopLoader(loader : UIAlertController) {
             DispatchQueue.main.async {
                 loader.dismiss(animated: true, completion: nil)
             }

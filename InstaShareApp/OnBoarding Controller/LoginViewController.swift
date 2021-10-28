@@ -84,6 +84,11 @@ class LoginViewController: UIViewController {
                     }else{
                         //Login Authentication Success case:-
                         UserDefaults.standard.set(true, forKey: PreferenceConstant.loginConstant)
+                        for document in snapshot!.documents {
+                                    print("UserData:- \(document.documentID) => \(document.data())")
+                        UserDefaults.standard.set(document.data()["username"], forKey: PreferenceConstant.loggedInUserName)
+                        UserDefaults.standard.set(document.data()["email"], forKey: PreferenceConstant.loggedInUserEmail)
+                                }
                         self.view.showToast(toastMessage: "Login Success", duration: 1.5 , bgColor: .green)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.navigateToDashBoard()

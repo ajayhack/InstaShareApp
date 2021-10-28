@@ -124,6 +124,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		741330F22727F15D00652864 /* Generals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generals;
+			sourceTree = "<group>";
+		};
 		7436AFD9271B0FCE00868F36 /* OnBoarding Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +177,7 @@
 		74DBEECE2712C5DB0039DE78 /* InstaShareApp */ = {
 			isa = PBXGroup;
 			children = (
+				741330F22727F15D00652864 /* Generals */,
 				749437012725338A00948BEE /* GoogleService-Info.plist */,
 				7436AFDE271B12BD00868F36 /* Utils */,
 				7436AFD9271B0FCE00868F36 /* OnBoarding Controller */,
