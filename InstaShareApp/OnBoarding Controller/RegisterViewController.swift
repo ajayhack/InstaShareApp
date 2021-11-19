@@ -13,17 +13,19 @@ import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var usernameTF: UITextField? = nil
+    @IBOutlet var usernameTF: UITextField? = nil
     
-    @IBOutlet weak var emailTF: UITextField? = nil
+    @IBOutlet var emailTF: UITextField? = nil
     
-    @IBOutlet weak var passwordTF: UITextField? = nil
+    @IBOutlet var passwordTF: UITextField? = nil
     
-    @IBOutlet weak var termsOfServiceLabel: UILabel? = nil
+    @IBOutlet var bioTF: UITextField? = nil
     
-    @IBOutlet weak var privacyPolicyLabel: UILabel? = nil
+    @IBOutlet var termsOfServiceLabel: UILabel? = nil
     
-    @IBOutlet weak var alreadyHaveAccountLabel: UILabel? = nil
+    @IBOutlet var privacyPolicyLabel: UILabel? = nil
+    
+    @IBOutlet var alreadyHaveAccountLabel: UILabel? = nil
     
     var uiLoader: UIAlertController? = nil
     
@@ -73,6 +75,7 @@ class RegisterViewController: UIViewController {
             let userName = usernameTF?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let emailName = emailTF?.text?.trimmingCharacters(in:.whitespacesAndNewlines)
             let password = passwordTF?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let bio = bioTF?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             
             self.showLoader()
             
@@ -85,7 +88,7 @@ class RegisterViewController: UIViewController {
                         self.view.showToast(toastMessage: "Error in Authentication", duration: 2.0 , bgColor: .red)
                     }
                 }else{
-                    self.createUserINFireStoreDB(userName , emailName , password , registerResponseUID)
+                    self.createUserINFireStoreDB(userName , emailName , password , registerResponseUID , bio)
                 }
             }
         }else{
@@ -106,13 +109,14 @@ class RegisterViewController: UIViewController {
     }
     
     //Method to create User in FireStore DB:-
-    private func createUserINFireStoreDB(_ userName : String? , _ emailName : String? , _ password : String? ,  _ uid : String?){
+    private func createUserINFireStoreDB(_ userName : String? , _ emailName : String? , _ password : String? ,  _ uid : String? , _ bio : String?){
         let db = Firestore.firestore()
         db.collection("insta_share_users").addDocument(data: [
             "username":userName ?? "",
             "email":emailName ?? "",
             "password":password ?? "",
             "uid":uid ?? "",
+            "bio":bio ?? ""
         ]) { error in
             DispatchQueue.main.async {
                 if(error != nil){

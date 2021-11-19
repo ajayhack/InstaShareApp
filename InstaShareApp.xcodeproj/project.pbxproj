@@ -28,6 +28,8 @@
 		74DBEF052712C6CF0039DE78 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBEF042712C6CF0039DE78 /* CameraViewController.swift */; };
 		74DBEF072712C7120039DE78 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBEF062712C7120039DE78 /* NotificationViewController.swift */; };
 		74DBEF092712C7320039DE78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBEF082712C7320039DE78 /* ProfileViewController.swift */; };
+		74DD403227369C2F008B53E8 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD403027369C2F008B53E8 /* CustomTableViewCell.swift */; };
+		74DD403327369C2F008B53E8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DD403127369C2F008B53E8 /* CustomTableViewCell.xib */; };
 		8ACC8BB19B4A544AE7B4E485 /* Pods_InstaShareApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB61787231A37A3BAC3039F /* Pods_InstaShareApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		74DBEF042712C6CF0039DE78 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		74DBEF062712C7120039DE78 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		74DBEF082712C7320039DE78 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		74DD403027369C2F008B53E8 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		74DD403127369C2F008B53E8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		958D9EE5F66EF07A6C5FBE02 /* Pods-InstaShareAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaShareAppTests.release.xcconfig"; path = "Target Support Files/Pods-InstaShareAppTests/Pods-InstaShareAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		9AB61787231A37A3BAC3039F /* Pods_InstaShareApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaShareApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78E4974225DF2A9AC3D81CC /* Pods-InstaShareApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaShareApp.release.xcconfig"; path = "Target Support Files/Pods-InstaShareApp/Pods-InstaShareApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				7436AFE3271B147A00868F36 /* FirebaseStorageManager.swift */,
 				7491C22F271CA756004DB13C /* Utility.swift */,
 				7436E8582723E065003FA372 /* ToastHelper.swift */,
+				74DD403027369C2F008B53E8 /* CustomTableViewCell.swift */,
+				74DD403127369C2F008B53E8 /* CustomTableViewCell.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				74DBEEDC2712C5DC0039DE78 /* LaunchScreen.storyboard in Resources */,
 				749437022725338A00948BEE /* GoogleService-Info.plist in Resources */,
 				74DBEED92712C5DC0039DE78 /* Assets.xcassets in Resources */,
+				74DD403327369C2F008B53E8 /* CustomTableViewCell.xib in Resources */,
 				74DBEED72712C5DB0039DE78 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +488,7 @@
 				74DBEF012712C6320039DE78 /* HomeViewController.swift in Sources */,
 				74DBEF092712C7320039DE78 /* ProfileViewController.swift in Sources */,
 				74DBEF052712C6CF0039DE78 /* CameraViewController.swift in Sources */,
+				74DD403227369C2F008B53E8 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

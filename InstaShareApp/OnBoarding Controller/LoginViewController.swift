@@ -13,15 +13,15 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var termsOfServiceLabel: UILabel? = nil
+    @IBOutlet var termsOfServiceLabel: UILabel? = nil
     
-    @IBOutlet weak var privacyPolicyLabel: UILabel? = nil
+    @IBOutlet var privacyPolicyLabel: UILabel? = nil
     
-    @IBOutlet weak var createAccountLabel: UILabel? = nil
+    @IBOutlet var createAccountLabel: UILabel? = nil
     
-    @IBOutlet weak var passwordTF: UITextField? = nil
+    @IBOutlet var passwordTF: UITextField? = nil
     
-    @IBOutlet weak var usernameTF: UITextField? = nil
+    @IBOutlet var usernameTF: UITextField? = nil
     
     var uiLoader: UIAlertController? = nil
    
@@ -88,6 +88,8 @@ class LoginViewController: UIViewController {
                                     print("UserData:- \(document.documentID) => \(document.data())")
                         UserDefaults.standard.set(document.data()["username"], forKey: PreferenceConstant.loggedInUserName)
                         UserDefaults.standard.set(document.data()["email"], forKey: PreferenceConstant.loggedInUserEmail)
+                        UserDefaults.standard.set(document.data()["bio"], forKey: PreferenceConstant.loggedInUserBio)
+                        UserDefaults.standard.set(document.data()["uid"], forKey: PreferenceConstant.loggedInUserUID)
                                 }
                         self.view.showToast(toastMessage: "Login Success", duration: 1.5 , bgColor: .green)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
