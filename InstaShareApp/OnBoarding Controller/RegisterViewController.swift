@@ -13,17 +13,19 @@ import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var usernameTF: UITextField? = nil
+    @IBOutlet var usernameTF: UITextField? = nil
     
-    @IBOutlet weak var emailTF: UITextField? = nil
+    @IBOutlet var emailTF: UITextField? = nil
     
-    @IBOutlet weak var passwordTF: UITextField? = nil
+    @IBOutlet var passwordTF: UITextField? = nil
     
-    @IBOutlet weak var termsOfServiceLabel: UILabel? = nil
+    @IBOutlet var bioTF: UITextField? = nil
     
-    @IBOutlet weak var privacyPolicyLabel: UILabel? = nil
+    @IBOutlet var termsOfServiceLabel: UILabel? = nil
     
-    @IBOutlet weak var alreadyHaveAccountLabel: UILabel? = nil
+    @IBOutlet var privacyPolicyLabel: UILabel? = nil
+    
+    @IBOutlet var alreadyHaveAccountLabel: UILabel? = nil
     
     var uiLoader: UIAlertController? = nil
     
@@ -73,6 +75,7 @@ class RegisterViewController: UIViewController {
             let userName = usernameTF?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let emailName = emailTF?.text?.trimmingCharacters(in:.whitespacesAndNewlines)
             let password = passwordTF?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let bio = bioTF?.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             
             self.showLoader()
             
@@ -85,7 +88,7 @@ class RegisterViewController: UIViewController {
                         self.view.showToast(toastMessage: "Error in Authentication", duration: 2.0 , bgColor: .red)
                     }
                 }else{
-                    self.createUserINFireStoreDB(userName , emailName , password , registerResponseUID)
+                    self.createUserINFireStoreDB(userName , emailName , password , registerResponseUID , bio)
                 }
             }
         }else{
@@ -94,7 +97,7 @@ class RegisterViewController: UIViewController {
     }
     
     //Method to Validate SignUp Fields:-
-    func validateSignUpFormFields() -> String {
+    private func validateSignUpFormFields() -> String {
         if(usernameTF?.text?.isEmpty ?? false == true){
             return "Username should not be empty!!!"
         } else if(emailTF?.text?.isEmpty ?? false == true){
@@ -106,13 +109,14 @@ class RegisterViewController: UIViewController {
     }
     
     //Method to create User in FireStore DB:-
-    func createUserINFireStoreDB(_ userName : String? , _ emailName : String? , _ password : String? ,  _ uid : String?){
+    private func createUserINFireStoreDB(_ userName : String? , _ emailName : String? , _ password : String? ,  _ uid : String? , _ bio : String?){
         let db = Firestore.firestore()
         db.collection("insta_share_users").addDocument(data: [
             "username":userName ?? "",
             "email":emailName ?? "",
             "password":password ?? "",
             "uid":uid ?? "",
+            "bio":bio ?? ""
         ]) { error in
             DispatchQueue.main.async {
                 if(error != nil){
@@ -130,14 +134,14 @@ class RegisterViewController: UIViewController {
     }
     
     //Loader Helper Functions:-
-    func showLoader(){
+    private func showLoader(){
         let loader = self.loader()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self.stopLoader(loader: loader)
                 }
     }
     
-    func loader() -> UIAlertController {
+    private func loader() -> UIAlertController {
             let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
             let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
             loadingIndicator.hidesWhenStopped = true
@@ -148,7 +152,7 @@ class RegisterViewController: UIViewController {
             return alert
         }
         
-        func stopLoader(loader : UIAlertController) {
+        private func stopLoader(loader : UIAlertController) {
             DispatchQueue.main.async {
                 loader.dismiss(animated: true, completion: nil)
             }
