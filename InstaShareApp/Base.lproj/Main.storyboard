@@ -396,10 +396,40 @@
                     <view key="view" contentMode="scaleToFill" id="SnB-Hl-gjl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Post by Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I0-qd-Pvw">
+                                <rect key="frame" x="10" y="108" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RWD-8H-dxP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onSearchTFChangedEvent:" destination="HxZ-UL-waH" eventType="editingChanged" id="Jed-UZ-Bg2"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="APM-tm-1Ib">
+                                <rect key="frame" x="0.0" y="178" width="414" height="635"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3N0-lB-jwx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="APM-tm-1Ib" firstAttribute="leading" secondItem="3N0-lB-jwx" secondAttribute="leading" id="464-8x-0Wi"/>
+                            <constraint firstItem="1I0-qd-Pvw" firstAttribute="leading" secondItem="3N0-lB-jwx" secondAttribute="leading" constant="10" id="CnJ-3o-cc3"/>
+                            <constraint firstItem="3N0-lB-jwx" firstAttribute="trailing" secondItem="1I0-qd-Pvw" secondAttribute="trailing" constant="10" id="En9-dI-GbM"/>
+                            <constraint firstItem="APM-tm-1Ib" firstAttribute="top" secondItem="1I0-qd-Pvw" secondAttribute="bottom" constant="20" id="GZA-xx-sxu"/>
+                            <constraint firstItem="1I0-qd-Pvw" firstAttribute="top" secondItem="3N0-lB-jwx" secondAttribute="top" constant="20" id="KVT-Kd-mcQ"/>
+                            <constraint firstItem="3N0-lB-jwx" firstAttribute="bottom" secondItem="APM-tm-1Ib" secondAttribute="bottom" id="ntS-NX-m3G"/>
+                            <constraint firstItem="3N0-lB-jwx" firstAttribute="trailing" secondItem="APM-tm-1Ib" secondAttribute="trailing" id="t1f-ge-ruK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="72d-ai-s5y"/>
+                    <connections>
+                        <outlet property="postTableView" destination="APM-tm-1Ib" id="drP-ys-xC5"/>
+                        <outlet property="searchTF" destination="1I0-qd-Pvw" id="CwD-YY-O7n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUT-Cn-7of" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

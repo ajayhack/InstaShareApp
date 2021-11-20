@@ -123,6 +123,17 @@ class HomeViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.tabBarController?.selectedIndex = 2
     }
     
+    //Show Share Sheet Action:-
+    private func showShareSheet(index : Int){
+        let shareSheetAction = UIActivityViewController(activityItems: [
+            postDataList[index].postImageURL ?? "",
+            postDataList[index].postDescription ?? "",
+            postDataList[index].postLocation ?? ""
+        ], applicationActivities: nil)
+        
+        present(shareSheetAction, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postDataList.count
     }
@@ -135,12 +146,15 @@ class HomeViewController: UIViewController , UITableViewDelegate , UITableViewDa
         cell.locationLabel?.text = modal.postLocation
         cell.delegate = self
         cell.likeButton?.tag = indexPath.row
+        cell.shareDelegate = self
+        cell.sharebutton?.tag = indexPath.row
         if(modal.postLike == true){
             cell.likeButton?.setImage(UIImage(systemName: "heart.fill"), for: UIControl.State.normal)
             cell.tintColor = .red
         }else{
             cell.likeButton?.setImage(UIImage(systemName: "heart"), for: UIControl.State.normal)
         }
+        cell.sharebutton?.tintColor = .blue
         let url = URL(string: modal.postImageURL!)
         let imageLoadingTask = URLSession.shared.dataTask(with: url!, completionHandler: { data, _, error in
             guard let data = data , error == nil else {
@@ -159,6 +173,50 @@ class HomeViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(postDataList[indexPath.row])
         timeStamp = postDataList[indexPath.row].postTimeStamp
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        timeStamp = postDataList[indexPath.row].postTimeStamp
+        if editingStyle == .delete {
+            let db = Firestore.firestore()
+            let query = db.collection("post_share")
+            self.showLoader(3)
+            query.getDocuments { snapshot, error in
+                DispatchQueue.main.async {
+                    if(snapshot?.isEmpty == true){
+                        //Post Fetching Error case:-
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            self.view.showToast(toastMessage: "Something went wrong!!!", duration: 2.0 , bgColor: .red)
+                        }
+                        
+                    }else{
+                        //Post Fetching Success case:-
+                        //Mapping Post Data objects to PostDataList:-
+                        for document in snapshot!.documents {
+                                    print("UserData:- \(document.documentID) => \(document.data())")
+                        let documentData = document.data()
+                        let postTime = documentData["post_date"] as? String
+                            if(postTime == self.timeStamp){
+                                    document.reference.delete()
+                                self.postDataList.remove(at: indexPath.row)
+                                tableView.beginUpdates()
+                                tableView.deleteRows(at: [indexPath], with: .fade)
+                                tableView.endUpdates()
+                            }
+                            
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            self.view.showToast(toastMessage: "Post Deleted Successfully", duration: 1.5 , bgColor: .green)
+                        }
+                        self.loadAllPostData()
+                }
+            }
+        }
+        }
     }
     
     //Loader Helper Functions:-
@@ -188,9 +246,17 @@ class HomeViewController: UIViewController , UITableViewDelegate , UITableViewDa
         }
 }
 
+//Extension Method for Like Button Tap
 extension HomeViewController : CustomTableViewDelegate {
     func didLikeButtonTap(index: Int) {
         timeStamp = postDataList[index].postTimeStamp
         updatePostLike()
+    }
+}
+
+//Extension Method for Share Button Tap
+extension HomeViewController : CustomTableViewShareDelegate {
+    func didShareButtonTap(index: Int) {
+        showShareSheet(index: index)
     }
 }

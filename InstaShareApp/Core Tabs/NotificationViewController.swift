@@ -91,6 +91,8 @@ class NotificationViewController: UIViewController , UITableViewDelegate , UITab
         }else{
             cell.likeButton?.setImage(UIImage(systemName: "heart"), for: UIControl.State.normal)
         }
+        cell.likeButton?.isHidden = true
+        cell.sharebutton?.isHidden = true
         let url = URL(string: modal.postImageURL!)
         let imageLoadingTask = URLSession.shared.dataTask(with: url!, completionHandler: { data, _, error in
             guard let data = data , error == nil else {
