@@ -11,6 +11,10 @@ protocol CustomTableViewDelegate : AnyObject{
     func didLikeButtonTap(index : Int)
 }
 
+protocol CustomTableViewShareDelegate : AnyObject{
+    func didShareButtonTap(index : Int)
+}
+
 class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet var userNameLabel : UILabel? = nil
@@ -21,6 +25,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var sharebutton : UIButton? = nil
     
     weak var delegate : CustomTableViewDelegate? = nil
+    weak var shareDelegate : CustomTableViewShareDelegate? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +34,10 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBAction func didLikeButtonTap(_ sender : UIButton){
         delegate?.didLikeButtonTap(index: sender.tag)
+    }
+    
+    @IBAction func didShareButtonTap(_ sender : UIButton){
+        shareDelegate?.didShareButtonTap(index: sender.tag)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
